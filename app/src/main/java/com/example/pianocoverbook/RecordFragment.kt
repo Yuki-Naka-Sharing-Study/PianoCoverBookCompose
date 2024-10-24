@@ -168,3 +168,19 @@ fun RightHandTextViewPreview() {
         RightHandTextView("右手の習熟度")
     }
 }
+
+@Composable
+fun LeftHandTextView(leftHand: String, modifier: Modifier = Modifier) {
+    Text(
+        text = "左手の習熟度",
+        modifier = modifier
+    )
+}
+
+@Preview(showBackground = true)
+@Composable
+fun LeftHandTextViewPreview() {
+    PianoCoverBookTheme {
+        LeftHandTextView("左手の習熟度")
+    }
+}
