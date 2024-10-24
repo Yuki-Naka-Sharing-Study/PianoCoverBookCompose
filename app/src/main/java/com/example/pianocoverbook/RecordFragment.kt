@@ -6,11 +6,16 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.compose.foundation.border
+import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.Row
+import androidx.compose.foundation.layout.Spacer
+import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
+import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material3.Button
 import androidx.compose.material3.ButtonDefaults
@@ -51,8 +56,67 @@ class RecordFragment : Fragment() {
 @Composable
 fun RecordScreen() {
     // ComposeのUIを定義
-    Column {
-        Text(text = "記録画面です")
+    Column(
+
+    ) {
+        Spacer(modifier = Modifier.height(16.dp))
+
+        Row(
+            horizontalArrangement = Arrangement.Center,
+            verticalAlignment = Alignment.CenterVertically
+        ) {
+            Spacer(modifier = Modifier.width(16.dp))
+            SongNameTextView("曲名")
+            Spacer(modifier = Modifier.width(16.dp))
+            SongNameTextField(Modifier.weight(1f, true))
+            Spacer(modifier = Modifier.width(16.dp))
+        }
+
+        Spacer(modifier = Modifier.height(8.dp))
+
+        Row(
+            horizontalArrangement = Arrangement.Center,
+            verticalAlignment = Alignment.CenterVertically
+        ) {
+            Spacer(modifier = Modifier.width(16.dp))
+            ArtistNameTextView("アーティスト名")
+            Spacer(modifier = Modifier.width(16.dp))
+            ArtistNameTextField(Modifier.weight(1f, true))
+            Spacer(modifier = Modifier.width(16.dp))
+        }
+
+        Spacer(modifier = Modifier.height(8.dp))
+
+        Row(
+            horizontalArrangement = Arrangement.Center,
+            verticalAlignment = Alignment.CenterVertically
+        ) {
+            Spacer(modifier = Modifier.width(16.dp))
+            MemoTextView("メモ")
+            Spacer(modifier = Modifier.width(16.dp))
+            MemoTextField(Modifier.weight(1f, true))
+            Spacer(modifier = Modifier.width(16.dp))
+        }
+
+        Spacer(modifier = Modifier.height(8.dp))
+
+        Row {
+            Column(
+                modifier = Modifier
+                    .fillMaxSize()
+                    .padding(16.dp),
+                verticalArrangement = Arrangement.Top,
+                horizontalAlignment = Alignment.CenterHorizontally
+            ) {
+                RightHandTextView("右手の習熟度")
+                RightHandCircularProgressWithSeekBar()
+
+                LeftHandTextView("左手の習熟度")
+                LeftHandCircularProgressWithSeekBar()
+
+                SaveRecordButton()
+            }
+        }
     }
 }
 
@@ -115,6 +179,36 @@ fun ArtistNameTextView(artistName: String, modifier: Modifier = Modifier) {
 fun ArtistNameTextViewPreview() {
     PianoCoverBookTheme {
         ArtistNameTextView("アーティスト名")
+    }
+}
+
+@Composable
+fun ArtistNameTextField(modifier: Modifier = Modifier) {
+    OutlinedTextField(
+        modifier = modifier
+            .height(52.dp)
+            .clip(RoundedCornerShape(10))
+            .border(
+                width = 2.dp,
+                color = Color.Gray,
+                shape = RoundedCornerShape(5.dp)
+            ),
+        value = "",
+        onValueChange = { },
+        placeholder = {
+            Text(
+                text = "リスト",
+                style = TextStyle(fontSize = 16.sp),
+                color = Color.Gray
+            ) },
+    )
+}
+
+@Preview(showBackground = true)
+@Composable
+fun ArtistNameTextFieldPreview() {
+    PianoCoverBookTheme {
+        ArtistNameTextField()
     }
 }
 
