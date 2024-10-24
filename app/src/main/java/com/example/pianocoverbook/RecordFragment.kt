@@ -236,3 +236,46 @@ fun RightHandCircularProgressWithSeekBarPreview() {
         RightHandCircularProgressWithSeekBar()
     }
 }
+
+@Composable
+fun LeftHandCircularProgressWithSeekBar() {
+    val progress = remember { mutableStateOf(0f) }
+
+    Box(contentAlignment = Alignment.Center,
+        modifier = Modifier.size(180.dp))
+    {
+        CircularProgressIndicator(
+            color = Color.Blue,
+            strokeWidth = 4.dp,
+            progress = progress.value / 100,
+            modifier = Modifier
+                .size(180.dp)
+                .padding(8.dp))
+        Text(
+            text = "${progress.value.toInt()}%",
+            fontSize = 36.sp
+        )
+    }
+
+    Slider(
+        colors = SliderDefaults.colors(
+            activeTrackColor = Color.Blue,
+            inactiveTrackColor = Color.Gray,
+            thumbColor = Color.Blue
+        ),
+        value = progress.value,
+        onValueChange = { newValue ->
+            progress.value = newValue
+        },
+        valueRange = 0f..100f,
+        modifier = Modifier.padding(16.dp)
+    )
+}
+
+@Preview(showBackground = true)
+@Composable
+fun LeftHandCircularProgressWithSeekBarPreview() {
+    PianoCoverBookTheme {
+        LeftHandCircularProgressWithSeekBar()
+    }
+}
