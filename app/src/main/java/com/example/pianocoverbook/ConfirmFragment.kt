@@ -96,3 +96,5 @@ fun NoRecordDescriptionTextPreview() {
         NoRecordDescriptionText()
     }
 }
+
+// 以下は「記録あり」のコード
