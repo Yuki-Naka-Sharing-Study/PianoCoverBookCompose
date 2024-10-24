@@ -83,11 +83,26 @@ fun SongNameTextField(modifier: Modifier = Modifier) {
     )
 }
 
-
 @Preview(showBackground = true)
 @Composable
 fun SongNameTextFieldPreview() {
     PianoCoverBookTheme {
         SongNameTextField()
+    }
+}
+
+@Composable
+fun ArtistNameTextView(artistName: String, modifier: Modifier = Modifier) {
+    Text(
+        text = "アーティスト名",
+        modifier = modifier
+    )
+}
+
+@Preview(showBackground = true)
+@Composable
+fun ArtistNameTextViewPreview() {
+    PianoCoverBookTheme {
+        ArtistNameTextView("アーティスト名")
     }
 }
