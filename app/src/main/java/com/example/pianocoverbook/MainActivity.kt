@@ -92,21 +92,3 @@ fun BottomNavigationBar(navController: NavController) {
         )
     }
 }
-
-@Composable
-fun ConfirmFragment() {
-    // 記録確認画面のUIを実装
-    Text("Confirm Screen")
-}
-
-@Composable
-fun RecordFragment() {
-    // 記録画面のUIを実装
-    Text("Record Screen")
-}
-
-@Composable
-fun SettingFragment() {
-    // 設定画面のUIを実装
-    Text("Settings Screen")
-}
