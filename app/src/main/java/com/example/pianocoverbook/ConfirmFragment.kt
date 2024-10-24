@@ -1,6 +1,5 @@
 package com.example.pianocoverbook
 
-import android.graphics.Color
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -53,6 +52,8 @@ fun NoRecordImageView(modifier: Modifier = Modifier) {
             .aspectRatio(1f)
     )
 }
+
+// 以下は「記録無し」のコード
 
 @Preview(showBackground = true)
 @Composable
