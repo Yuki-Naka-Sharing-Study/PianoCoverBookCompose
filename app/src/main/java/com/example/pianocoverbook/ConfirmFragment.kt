@@ -19,6 +19,10 @@ import androidx.compose.material3.Icon
 import androidx.compose.material3.Text
 import androidx.compose.material3.TextField
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.getValue
+import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.remember
+import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.ComposeView
 import androidx.compose.ui.res.painterResource
@@ -132,5 +136,18 @@ fun SearchBar(
             singleLine = true,
             modifier = Modifier.fillMaxWidth()
         )
+    }
+}
+
+@Composable
+fun SearchScreen() {
+    var searchQuery by remember { mutableStateOf("") }
+
+    Column(modifier = Modifier.padding(16.dp)) {
+        SearchBar(
+            query = searchQuery,
+            onQueryChange = { searchQuery = it }
+        )
+        // 検索結果を表示するためのUIをここに追加。
     }
 }
