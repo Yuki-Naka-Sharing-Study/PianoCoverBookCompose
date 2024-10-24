@@ -41,18 +41,10 @@ class RecordFragment : Fragment() {
     ): View {
         val composeView = ComposeView(requireContext()).apply {
             setContent {
-                RecordScreen()
+
             }
         }
         return composeView
-    }
-}
-
-@Composable
-fun RecordScreen() {
-    // ComposeのUIを定義
-    Column {
-        Text(text = "記録画面です")
     }
 }
 
