@@ -41,9 +41,9 @@ fun MyApp() {
             startDestination = "confirm",
             Modifier.padding(innerPadding)
         ) {
-            composable("confirm") { ConfirmFragment() }
-            composable("record") { RecordFragment() }
-            composable("setting") { SettingFragment() }
+            composable("confirm") { ConfirmView() }
+            composable("record") { RecordView() }
+            composable("setting") { SettingView() }
         }
     }
 }
