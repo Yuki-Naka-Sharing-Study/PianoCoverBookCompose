@@ -6,12 +6,21 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.compose.foundation.border
+import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.height
+import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.shape.RoundedCornerShape
+import androidx.compose.material3.CircularProgressIndicator
 import androidx.compose.material3.OutlinedTextField
+import androidx.compose.material3.Slider
+import androidx.compose.material3.SliderDefaults
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.remember
+import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
@@ -182,5 +191,48 @@ fun LeftHandTextView(leftHand: String, modifier: Modifier = Modifier) {
 fun LeftHandTextViewPreview() {
     PianoCoverBookTheme {
         LeftHandTextView("左手の習熟度")
+    }
+}
+
+@Composable
+fun RightHandCircularProgressWithSeekBar() {
+    val progress = remember { mutableStateOf(0f) }
+
+    Box(contentAlignment = Alignment.Center,
+        modifier = Modifier.size(180.dp))
+    {
+        CircularProgressIndicator(
+            color = Color.Blue,
+            strokeWidth = 4.dp,
+            progress = progress.value / 100,
+            modifier = Modifier
+                .size(180.dp)
+                .padding(8.dp))
+        Text(
+            text = "${progress.value.toInt()}%",
+            fontSize = 36.sp
+        )
+    }
+
+    Slider(
+        colors = SliderDefaults.colors(
+            activeTrackColor = Color.Blue,
+            inactiveTrackColor = Color.Gray,
+            thumbColor = Color.Blue
+        ),
+        value = progress.value,
+        onValueChange = { newValue ->
+            progress.value = newValue
+        },
+        valueRange = 0f..100f,
+        modifier = Modifier.padding(16.dp)
+    )
+}
+
+@Preview(showBackground = true)
+@Composable
+fun RightHandCircularProgressWithSeekBarPreview() {
+    PianoCoverBookTheme {
+        RightHandCircularProgressWithSeekBar()
     }
 }
