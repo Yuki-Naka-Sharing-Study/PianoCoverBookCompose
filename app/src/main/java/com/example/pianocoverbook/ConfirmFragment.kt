@@ -18,8 +18,6 @@ import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Search
 import androidx.compose.material3.Icon
-import androidx.compose.material3.Text
-import androidx.compose.material3.TextField
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
@@ -104,7 +102,7 @@ fun NoRecordImageViewPreview() {
 
 @Composable
 fun NoRecordText(modifier: Modifier = Modifier) {
-    Text(
+    androidx.compose.material.Text(
         text = "記録無し",
         fontWeight = FontWeight.Bold,
         fontSize = 28.sp,
@@ -121,7 +119,7 @@ fun NoRecordTextPreview() {
 
 @Composable
 fun NoRecordDescriptionText(modifier: Modifier = Modifier) {
-    Text(
+    androidx.compose.material.Text(
         text = "まだ何も記録されていません。",
         fontWeight = FontWeight.Light,
         color = androidx.compose.ui.graphics.Color.LightGray
@@ -152,10 +150,10 @@ fun SearchBar(
         .padding(8.dp)
 
     Box(modifier = modifier) {
-        TextField(
+        androidx.compose.material.TextField(
             value = query,
             onValueChange = onQueryChange,
-            placeholder = { Text("曲名・アーティスト名で検索") },
+            placeholder = { androidx.compose.material.Text("曲名・アーティスト名で検索") },
             leadingIcon = {
                 Icon(Icons.Default.Search, contentDescription = "Search Icon")
             },
