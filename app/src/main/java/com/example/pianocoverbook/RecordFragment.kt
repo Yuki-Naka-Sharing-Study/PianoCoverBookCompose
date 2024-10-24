@@ -122,3 +122,33 @@ fun MemoTextViewPreview() {
         MemoTextView("メモ")
     }
 }
+
+@Composable
+fun MemoTextField(modifier: Modifier = Modifier) {
+    OutlinedTextField(
+        modifier = modifier
+            .height(52.dp)
+            .clip(RoundedCornerShape(10))
+            .border(
+                width = 2.dp,
+                color = Color.Gray,
+                shape = RoundedCornerShape(5.dp)
+            ),
+        value = "",
+        onValueChange = { },
+        placeholder = {
+            Text(
+                text = "アルペジオが上手く弾けない。",
+                style = TextStyle(fontSize = 16.sp),
+                color = Color.Gray
+            ) },
+    )
+}
+
+@Preview(showBackground = true)
+@Composable
+fun MemoTextFieldPreview() {
+    PianoCoverBookTheme {
+        MemoTextField()
+    }
+}
