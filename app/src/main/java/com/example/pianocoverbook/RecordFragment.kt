@@ -106,3 +106,19 @@ fun ArtistNameTextViewPreview() {
         ArtistNameTextView("アーティスト名")
     }
 }
+
+@Composable
+fun MemoTextView(memoName: String, modifier: Modifier = Modifier) {
+    Text(
+        text = "メモ",
+        modifier = modifier
+    )
+}
+
+@Preview(showBackground = true)
+@Composable
+fun MemoTextViewPreview() {
+    PianoCoverBookTheme {
+        MemoTextView("メモ")
+    }
+}
