@@ -13,8 +13,10 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.ComposeView
 import androidx.compose.ui.res.painterResource
+import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
+import androidx.compose.ui.unit.sp
 import androidx.fragment.app.Fragment
 import com.example.pianocoverbook.ui.theme.PianoCoverBookTheme
 
@@ -56,5 +58,22 @@ fun NoRecordImageView(modifier: Modifier = Modifier) {
 fun NoRecordImageViewPreview() {
     PianoCoverBookTheme {
         NoRecordImageView(modifier = Modifier)
+    }
+}
+
+@Composable
+fun NoRecordText(modifier: Modifier = Modifier) {
+    Text(
+        text = "記録無し",
+        fontWeight = FontWeight.Bold,
+        fontSize = 28.sp,
+    )
+}
+
+@Preview(showBackground = true)
+@Composable
+fun NoRecordTextPreview() {
+    PianoCoverBookTheme {
+        NoRecordText()
     }
 }
