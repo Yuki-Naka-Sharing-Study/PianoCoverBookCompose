@@ -60,7 +60,7 @@ fun BottomNavigationBar(navController: NavController) {
             selected = currentDestination?.route == "confirm",
             onClick = {
                 navController.navigate("confirm") {
-                    popUpTo("confirm") { saveState = true }
+//                    popUpTo("confirm") { saveState = true }
                     launchSingleTop = true
                     restoreState = true
                 }
@@ -72,7 +72,7 @@ fun BottomNavigationBar(navController: NavController) {
             selected = currentDestination?.route == "record",
             onClick = {
                 navController.navigate("record") {
-                    popUpTo("record") { saveState = true }
+//                    popUpTo("record") { saveState = true }
                     launchSingleTop = true
                     restoreState = true
                 }
@@ -84,7 +84,7 @@ fun BottomNavigationBar(navController: NavController) {
             selected = currentDestination?.route == "setting",
             onClick = {
                 navController.navigate("setting") {
-                    popUpTo("setting") { saveState = true }
+//                    popUpTo("setting") { saveState = true }
                     launchSingleTop = true
                     restoreState = true
                 }
