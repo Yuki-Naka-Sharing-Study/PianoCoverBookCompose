@@ -152,3 +152,19 @@ fun MemoTextFieldPreview() {
         MemoTextField()
     }
 }
+
+@Composable
+fun RightHandTextView(rightHand: String, modifier: Modifier = Modifier) {
+    Text(
+        text = "右手の習熟度",
+        modifier = modifier
+    )
+}
+
+@Preview(showBackground = true)
+@Composable
+fun RightHandTextViewPreview() {
+    PianoCoverBookTheme {
+        RightHandTextView("右手の習熟度")
+    }
+}
