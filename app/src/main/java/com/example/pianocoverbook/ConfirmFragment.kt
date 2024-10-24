@@ -5,10 +5,19 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.compose.foundation.Image
+import androidx.compose.foundation.background
+import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.aspectRatio
+import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
+import androidx.compose.foundation.shape.RoundedCornerShape
+import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.filled.Search
+import androidx.compose.material3.Icon
 import androidx.compose.material3.Text
+import androidx.compose.material3.TextField
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.ComposeView
@@ -98,3 +107,30 @@ fun NoRecordDescriptionTextPreview() {
 }
 
 // 以下は「記録あり」のコード
+
+@Composable
+fun SearchBar(
+    query: String,
+    onQueryChange: (String) -> Unit
+) {
+    val modifier = Modifier
+        .fillMaxWidth()
+        .background(
+            androidx.compose.ui.graphics.Color.Gray.copy(alpha = 0.1f),
+            shape = RoundedCornerShape(12.dp)
+        )
+        .padding(8.dp)
+
+    Box(modifier = modifier) {
+        TextField(
+            value = query,
+            onValueChange = onQueryChange,
+            placeholder = { Text("曲名・アーティスト名で検索") },
+            leadingIcon = {
+                Icon(Icons.Default.Search, contentDescription = "Search Icon")
+            },
+            singleLine = true,
+            modifier = Modifier.fillMaxWidth()
+        )
+    }
+}
