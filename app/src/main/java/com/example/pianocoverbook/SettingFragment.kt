@@ -91,7 +91,7 @@ fun SettingScreenPreview() {
 }
 
 @Composable
-fun SetingTextView() {
+private fun SetingTextView() {
     Text(
         "設定",
         fontWeight = FontWeight.Bold
@@ -100,14 +100,14 @@ fun SetingTextView() {
 
 @Preview(showBackground = true)
 @Composable
-fun SetingTextViewPreview() {
+private fun SetingTextViewPreview() {
     PianoCoverBookTheme {
         SetingTextView()
     }
 }
 
 @Composable
-fun AboutThisAppLazyColumn(modifier: Modifier) {
+private fun AboutThisAppLazyColumn(modifier: Modifier) {
     val itemList = listOf(
         "このアプリについて",
         "お問い合わせ",
@@ -142,7 +142,7 @@ fun AboutThisAppLazyColumn(modifier: Modifier) {
 
 @Preview(showBackground = true)
 @Composable
-fun AboutThisAppLazyColumnPreview() {
+private fun AboutThisAppLazyColumnPreview() {
     PianoCoverBookTheme {
         AboutThisAppLazyColumn(modifier = Modifier)
     }
