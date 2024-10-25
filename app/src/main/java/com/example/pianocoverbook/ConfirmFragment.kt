@@ -79,6 +79,14 @@ fun ConfirmScreen() {
     }
 }
 
+@Preview(showBackground = true)
+@Composable
+fun ConfirmScreenPreview() {
+    PianoCoverBookTheme {
+        ConfirmScreen()
+    }
+}
+
 @Composable
 fun NoRecordImageView(modifier: Modifier = Modifier) {
     Image(
