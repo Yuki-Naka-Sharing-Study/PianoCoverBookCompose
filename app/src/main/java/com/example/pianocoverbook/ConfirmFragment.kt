@@ -88,7 +88,7 @@ fun ConfirmScreenPreview() {
 }
 
 @Composable
-fun NoRecordImageView(modifier: Modifier = Modifier) {
+private fun NoRecordImageView(modifier: Modifier = Modifier) {
     Image(
         painter = painterResource(id = R.drawable.music_note),
         contentDescription = "Description of the image",
@@ -102,14 +102,14 @@ fun NoRecordImageView(modifier: Modifier = Modifier) {
 
 @Preview(showBackground = true)
 @Composable
-fun NoRecordImageViewPreview() {
+private fun NoRecordImageViewPreview() {
     PianoCoverBookTheme {
         NoRecordImageView(modifier = Modifier)
     }
 }
 
 @Composable
-fun NoRecordText(modifier: Modifier = Modifier) {
+private fun NoRecordText(modifier: Modifier = Modifier) {
     androidx.compose.material.Text(
         text = "記録無し",
         fontWeight = FontWeight.Bold,
@@ -119,14 +119,14 @@ fun NoRecordText(modifier: Modifier = Modifier) {
 
 @Preview(showBackground = true)
 @Composable
-fun NoRecordTextPreview() {
+private fun NoRecordTextPreview() {
     PianoCoverBookTheme {
         NoRecordText()
     }
 }
 
 @Composable
-fun NoRecordDescriptionText(modifier: Modifier = Modifier) {
+private fun NoRecordDescriptionText(modifier: Modifier = Modifier) {
     androidx.compose.material.Text(
         text = "まだ何も記録されていません。",
         fontWeight = FontWeight.Light,
@@ -136,7 +136,7 @@ fun NoRecordDescriptionText(modifier: Modifier = Modifier) {
 
 @Preview(showBackground = true)
 @Composable
-fun NoRecordDescriptionTextPreview() {
+private fun NoRecordDescriptionTextPreview() {
     PianoCoverBookTheme {
         NoRecordDescriptionText()
     }
@@ -145,7 +145,7 @@ fun NoRecordDescriptionTextPreview() {
 // 以下は「記録あり」のコード
 
 @Composable
-fun SearchBar(
+private fun SearchBar(
     query: String,
     onQueryChange: (String) -> Unit
 ) {
@@ -172,7 +172,7 @@ fun SearchBar(
 }
 
 @Composable
-fun SearchScreen() {
+private fun SearchScreen() {
     var searchQuery by remember { mutableStateOf("") }
 
     Column(modifier = Modifier.padding(16.dp)) {
