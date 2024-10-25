@@ -302,14 +302,14 @@ fun RightHandCircularProgressWithSeekBar() {
     val progress = remember { mutableStateOf(0f) }
 
     Box(contentAlignment = Alignment.Center,
-        modifier = Modifier.size(180.dp))
+        modifier = Modifier.size(160.dp))
     {
         CircularProgressIndicator(
             color = Color.Blue,
             strokeWidth = 4.dp,
             progress = progress.value / 100,
             modifier = Modifier
-                .size(180.dp)
+                .size(160.dp)
                 .padding(8.dp))
         Text(
             text = "${progress.value.toInt()}%",
@@ -345,14 +345,14 @@ fun LeftHandCircularProgressWithSeekBar() {
     val progress = remember { mutableStateOf(0f) }
 
     Box(contentAlignment = Alignment.Center,
-        modifier = Modifier.size(180.dp))
+        modifier = Modifier.size(160.dp))
     {
         CircularProgressIndicator(
             color = Color.Blue,
             strokeWidth = 4.dp,
             progress = progress.value / 100,
             modifier = Modifier
-                .size(180.dp)
+                .size(160.dp)
                 .padding(8.dp))
         Text(
             text = "${progress.value.toInt()}%",
