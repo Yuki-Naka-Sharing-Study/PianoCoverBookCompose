@@ -119,6 +119,14 @@ fun RecordScreen() {
     }
 }
 
+@Preview(showBackground = true)
+@Composable
+fun RecordScreenPreview() {
+    PianoCoverBookTheme {
+        RecordScreen()
+    }
+}
+
 @Composable
 fun SongNameTextView(songName: String, modifier: Modifier = Modifier) {
     Text(
