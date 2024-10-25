@@ -128,7 +128,7 @@ fun RecordScreenPreview() {
 }
 
 @Composable
-fun SongNameTextView(songName: String, modifier: Modifier = Modifier) {
+private fun SongNameTextView(songName: String, modifier: Modifier = Modifier) {
     Text(
         text = "曲名",
         modifier = modifier
@@ -137,14 +137,14 @@ fun SongNameTextView(songName: String, modifier: Modifier = Modifier) {
 
 @Preview(showBackground = true)
 @Composable
-fun SongNameTextViewPreview() {
+private fun SongNameTextViewPreview() {
     PianoCoverBookTheme {
         SongNameTextView("曲名")
     }
 }
 
 @Composable
-fun SongNameTextField(modifier: Modifier = Modifier) {
+private fun SongNameTextField(modifier: Modifier = Modifier) {
     OutlinedTextField(
         modifier = modifier
             .height(52.dp)
@@ -167,14 +167,14 @@ fun SongNameTextField(modifier: Modifier = Modifier) {
 
 @Preview(showBackground = true)
 @Composable
-fun SongNameTextFieldPreview() {
+private fun SongNameTextFieldPreview() {
     PianoCoverBookTheme {
         SongNameTextField()
     }
 }
 
 @Composable
-fun ArtistNameTextView(artistName: String, modifier: Modifier = Modifier) {
+private fun ArtistNameTextView(artistName: String, modifier: Modifier = Modifier) {
     Text(
         text = "アーティスト名",
         modifier = modifier
@@ -183,14 +183,14 @@ fun ArtistNameTextView(artistName: String, modifier: Modifier = Modifier) {
 
 @Preview(showBackground = true)
 @Composable
-fun ArtistNameTextViewPreview() {
+private fun ArtistNameTextViewPreview() {
     PianoCoverBookTheme {
         ArtistNameTextView("アーティスト名")
     }
 }
 
 @Composable
-fun ArtistNameTextField(modifier: Modifier = Modifier) {
+private fun ArtistNameTextField(modifier: Modifier = Modifier) {
     OutlinedTextField(
         modifier = modifier
             .height(52.dp)
@@ -213,14 +213,14 @@ fun ArtistNameTextField(modifier: Modifier = Modifier) {
 
 @Preview(showBackground = true)
 @Composable
-fun ArtistNameTextFieldPreview() {
+private fun ArtistNameTextFieldPreview() {
     PianoCoverBookTheme {
         ArtistNameTextField()
     }
 }
 
 @Composable
-fun MemoTextView(memoName: String, modifier: Modifier = Modifier) {
+private fun MemoTextView(memoName: String, modifier: Modifier = Modifier) {
     Text(
         text = "メモ",
         modifier = modifier
@@ -229,14 +229,14 @@ fun MemoTextView(memoName: String, modifier: Modifier = Modifier) {
 
 @Preview(showBackground = true)
 @Composable
-fun MemoTextViewPreview() {
+private fun MemoTextViewPreview() {
     PianoCoverBookTheme {
         MemoTextView("メモ")
     }
 }
 
 @Composable
-fun MemoTextField(modifier: Modifier = Modifier) {
+private fun MemoTextField(modifier: Modifier = Modifier) {
     OutlinedTextField(
         modifier = modifier
             .height(52.dp)
@@ -259,14 +259,14 @@ fun MemoTextField(modifier: Modifier = Modifier) {
 
 @Preview(showBackground = true)
 @Composable
-fun MemoTextFieldPreview() {
+private fun MemoTextFieldPreview() {
     PianoCoverBookTheme {
         MemoTextField()
     }
 }
 
 @Composable
-fun RightHandTextView(rightHand: String, modifier: Modifier = Modifier) {
+private fun RightHandTextView(rightHand: String, modifier: Modifier = Modifier) {
     Text(
         text = "右手の習熟度",
         modifier = modifier
@@ -275,14 +275,14 @@ fun RightHandTextView(rightHand: String, modifier: Modifier = Modifier) {
 
 @Preview(showBackground = true)
 @Composable
-fun RightHandTextViewPreview() {
+private fun RightHandTextViewPreview() {
     PianoCoverBookTheme {
         RightHandTextView("右手の習熟度")
     }
 }
 
 @Composable
-fun LeftHandTextView(leftHand: String, modifier: Modifier = Modifier) {
+private fun LeftHandTextView(leftHand: String, modifier: Modifier = Modifier) {
     Text(
         text = "左手の習熟度",
         modifier = modifier
@@ -291,14 +291,14 @@ fun LeftHandTextView(leftHand: String, modifier: Modifier = Modifier) {
 
 @Preview(showBackground = true)
 @Composable
-fun LeftHandTextViewPreview() {
+private fun LeftHandTextViewPreview() {
     PianoCoverBookTheme {
         LeftHandTextView("左手の習熟度")
     }
 }
 
 @Composable
-fun RightHandCircularProgressWithSeekBar() {
+private fun RightHandCircularProgressWithSeekBar() {
     val progress = remember { mutableStateOf(0f) }
 
     Box(contentAlignment = Alignment.Center,
@@ -334,14 +334,14 @@ fun RightHandCircularProgressWithSeekBar() {
 
 @Preview(showBackground = true)
 @Composable
-fun RightHandCircularProgressWithSeekBarPreview() {
+private fun RightHandCircularProgressWithSeekBarPreview() {
     PianoCoverBookTheme {
         RightHandCircularProgressWithSeekBar()
     }
 }
 
 @Composable
-fun LeftHandCircularProgressWithSeekBar() {
+private fun LeftHandCircularProgressWithSeekBar() {
     val progress = remember { mutableStateOf(0f) }
 
     Box(contentAlignment = Alignment.Center,
@@ -377,14 +377,14 @@ fun LeftHandCircularProgressWithSeekBar() {
 
 @Preview(showBackground = true)
 @Composable
-fun LeftHandCircularProgressWithSeekBarPreview() {
+private fun LeftHandCircularProgressWithSeekBarPreview() {
     PianoCoverBookTheme {
         LeftHandCircularProgressWithSeekBar()
     }
 }
 
 @Composable
-fun SaveRecordButton() {
+private fun SaveRecordButton() {
     Button(
         onClick = {},
         colors = ButtonDefaults.buttonColors(Color.Blue)
@@ -395,7 +395,7 @@ fun SaveRecordButton() {
 
 @Preview(showBackground = true)
 @Composable
-fun SaveRecordButtonPreview() {
+private fun SaveRecordButtonPreview() {
     PianoCoverBookTheme {
         SaveRecordButton()
     }
