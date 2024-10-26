@@ -31,9 +31,11 @@ import androidx.compose.runtime.MutableState
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.platform.ComposeView
 import androidx.compose.ui.text.TextStyle
+import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.fragment.app.Fragment
+import com.example.pianocoverbook.ui.theme.PianoCoverBookTheme
 
 // 以下、リファクタリング後のコード
 class RecordFragment : Fragment() {
@@ -80,6 +82,14 @@ fun RecordScreen() {
                 SaveRecordButton()
             }
         }
+    }
+}
+
+@Preview(showBackground = true)
+@Composable
+fun RecordScreenPreview() {
+    PianoCoverBookTheme {
+        RecordScreen()
     }
 }
 
