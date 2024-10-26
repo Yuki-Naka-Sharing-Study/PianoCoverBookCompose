@@ -299,7 +299,7 @@ private fun LeftHandTextViewPreview() {
 
 @Composable
 private fun RightHandCircularProgressWithSeekBar() {
-    val progress = remember { mutableStateOf(0f) }
+    val rightHandProgress = remember { mutableStateOf(0f) }
 
     Box(contentAlignment = Alignment.Center,
         modifier = Modifier.size(160.dp))
@@ -307,12 +307,12 @@ private fun RightHandCircularProgressWithSeekBar() {
         CircularProgressIndicator(
             color = Color.Blue,
             strokeWidth = 4.dp,
-            progress = progress.value / 100,
+            progress = rightHandProgress.value / 100,
             modifier = Modifier
                 .size(160.dp)
                 .padding(8.dp))
         Text(
-            text = "${progress.value.toInt()}%",
+            text = "${rightHandProgress.value.toInt()}%",
             fontSize = 36.sp
         )
     }
@@ -323,9 +323,9 @@ private fun RightHandCircularProgressWithSeekBar() {
             inactiveTrackColor = Color.Gray,
             thumbColor = Color.Blue
         ),
-        value = progress.value,
+        value = rightHandProgress.value,
         onValueChange = { newValue ->
-            progress.value = newValue
+            rightHandProgress.value = newValue
         },
         valueRange = 0f..100f,
         modifier = Modifier.padding(16.dp)
@@ -342,7 +342,7 @@ private fun RightHandCircularProgressWithSeekBarPreview() {
 
 @Composable
 private fun LeftHandCircularProgressWithSeekBar() {
-    val progress = remember { mutableStateOf(0f) }
+    val leftHandProgress = remember { mutableStateOf(0f) }
 
     Box(contentAlignment = Alignment.Center,
         modifier = Modifier.size(160.dp))
@@ -350,12 +350,12 @@ private fun LeftHandCircularProgressWithSeekBar() {
         CircularProgressIndicator(
             color = Color.Blue,
             strokeWidth = 4.dp,
-            progress = progress.value / 100,
+            progress = leftHandProgress.value / 100,
             modifier = Modifier
                 .size(160.dp)
                 .padding(8.dp))
         Text(
-            text = "${progress.value.toInt()}%",
+            text = "${leftHandProgress.value.toInt()}%",
             fontSize = 36.sp
         )
     }
@@ -366,9 +366,9 @@ private fun LeftHandCircularProgressWithSeekBar() {
             inactiveTrackColor = Color.Gray,
             thumbColor = Color.Blue
         ),
-        value = progress.value,
+        value = leftHandProgress.value,
         onValueChange = { newValue ->
-            progress.value = newValue
+            leftHandProgress.value = newValue
         },
         valueRange = 0f..100f,
         modifier = Modifier.padding(16.dp)
