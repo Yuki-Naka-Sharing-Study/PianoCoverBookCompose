@@ -60,8 +60,8 @@ fun RecordScreen() {
 
         Spacer(modifier = Modifier.height(dimensionResource(id = R.dimen.space_16)))
         InputRow(
-            label = stringResource(id = R.string.song_name),
-            placeholder = stringResource(id = R.string.placeholder_song)
+            label = stringResource(id = R.string.music_name),
+            placeholder = stringResource(id = R.string.placeholder_music)
         )
 
         Spacer(modifier = Modifier.height(dimensionResource(id = R.dimen.space_8)))

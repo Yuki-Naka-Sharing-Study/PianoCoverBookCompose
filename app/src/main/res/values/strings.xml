@@ -10,8 +10,8 @@
     <string name="hello_blank_fragment">Hello blank fragment</string>
 
     <!-- RecordFragment -->
-    <string name="song_name">曲名</string>
-    <string name="placeholder_song">ラ・カンパネラ</string>
+    <string name="music_name">曲名</string>
+    <string name="placeholder_music">ラ・カンパネラ</string>
 
     <string name="artist_name">作曲者名</string>
     <string name="placeholder_artist">リスト</string>
