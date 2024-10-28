@@ -8,12 +8,10 @@ import android.view.ViewGroup
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
-import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
-import androidx.compose.foundation.layout.wrapContentHeight
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.foundation.text.BasicText
@@ -54,34 +52,28 @@ fun SettingScreen() {
         verticalArrangement = Arrangement.Top,
         horizontalAlignment = Alignment.CenterHorizontally
     ) {
+
+        Spacer(
+            modifier = Modifier.height(
+                dimensionResource(id = R.dimen.space_16)
+            )
+        )
+
         SettingTextView()
 
         Spacer(
             modifier = Modifier.height(
-            dimensionResource(id = R.dimen.space_16)
+                dimensionResource(id = R.dimen.space_16)
             )
         )
 
-        Row(
+        AboutThisAppLazyColumn(
             modifier = Modifier
                 .fillMaxWidth()
-                .padding(dimensionResource(id = R.dimen.space_16)),
-        ) {
-            Column(
-                modifier = Modifier
-                    .wrapContentHeight(),
-                verticalArrangement = Arrangement.Top,
-                horizontalAlignment = Alignment.Start
-            ) {
-                AboutThisAppLazyColumn(
-                    modifier = Modifier
-                        .fillMaxWidth()
-                        .padding(horizontal = dimensionResource(id = R.dimen.space_16))
-                        .clip(RoundedCornerShape(dimensionResource(id = R.dimen.space_16)))
-                        .background(color = androidx.compose.ui.graphics.Color.LightGray)
-                )
-            }
-        }
+                .padding(horizontal = dimensionResource(id = R.dimen.space_16))
+                .clip(RoundedCornerShape(dimensionResource(id = R.dimen.space_16)))
+                .background(color = androidx.compose.ui.graphics.Color.LightGray)
+        )
     }
 }
 
