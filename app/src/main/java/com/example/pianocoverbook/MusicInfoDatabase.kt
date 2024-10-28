@@ -14,7 +14,7 @@ abstract class MusicInfoDatabase : RoomDatabase() {
         @Volatile
         private var INSTANCE: MusicInfoDatabase ? = null
 
-        fun getUserAppDatabase(context: Context): MusicInfoDatabase {
+        fun getMusicInfoDatabase(context: Context): MusicInfoDatabase {
             // if the INSTANCE is not null, then return it,
             // if it is, then create the database
             return INSTANCE ?: synchronized(this) {
