@@ -30,9 +30,10 @@ import androidx.compose.runtime.mutableFloatStateOf
 import androidx.compose.runtime.saveable.rememberSaveable
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.platform.ComposeView
+import androidx.compose.ui.res.dimensionResource
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.tooling.preview.Preview
-import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.fragment.app.Fragment
 import com.example.pianocoverbook.ui.theme.PianoCoverBookTheme
@@ -54,21 +55,30 @@ class RecordFragment : Fragment() {
 @Composable
 fun RecordScreen() {
     Column(
-        modifier = Modifier.padding(16.dp)
+        modifier = Modifier.padding(dimensionResource(id = R.dimen.padding_default))
     ) {
 
-        Spacer(modifier = Modifier.height(16.dp))
-        InputRow(label = "曲名", placeholder = "ラ・カンパネラ")
+        Spacer(modifier = Modifier.height(dimensionResource(id = R.dimen.space_16)))
+        InputRow(
+            label = stringResource(id = R.string.song_name),
+            placeholder = stringResource(id = R.string.placeholder_song)
+        )
 
-        Spacer(modifier = Modifier.height(8.dp))
-        InputRow(label = "アーティスト名", placeholder = "リスト")
+        Spacer(modifier = Modifier.height(dimensionResource(id = R.dimen.space_8)))
+        InputRow(
+            label = stringResource(id = R.string.artist_name),
+            placeholder = stringResource(id = R.string.placeholder_artist)
+        )
 
-        Spacer(modifier = Modifier.height(8.dp))
-        InputRow(label = "メモ", placeholder = "アルペジオが上手く弾けない。")
+        Spacer(modifier = Modifier.height(dimensionResource(id = R.dimen.space_8)))
+        InputRow(
+            label = stringResource(id = R.string.memo_name),
+            placeholder = stringResource(id = R.string.placeholder_memo)
+        )
 
-        Spacer(modifier = Modifier.height(8.dp))
-        ProgressSection("右手の習熟度") { RightHandCircularProgressWithSeekBar() }
-        ProgressSection("左手の習熟度") { LeftHandCircularProgressWithSeekBar() }
+        Spacer(modifier = Modifier.height(dimensionResource(id = R.dimen.space_8)))
+        ProgressSection(stringResource(id = R.string.right_hand)) { RightHandCircularProgressWithSeekBar() }
+        ProgressSection(stringResource(id = R.string.left_hand)) { LeftHandCircularProgressWithSeekBar() }
 
         Column(
             modifier = Modifier.fillMaxSize(),
@@ -99,19 +109,19 @@ fun InputRow(label: String, placeholder: String) {
         horizontalArrangement = Arrangement.Center,
         verticalAlignment = Alignment.CenterVertically
     ) {
-        Spacer(modifier = Modifier.width(16.dp))
+        Spacer(modifier = Modifier.width(dimensionResource(id = R.dimen.space_16)))
         Text(text = label)
-        Spacer(modifier = Modifier.width(16.dp))
+        Spacer(modifier = Modifier.width(dimensionResource(id = R.dimen.space_16)))
         androidx.compose.material.OutlinedTextField(
             modifier = Modifier
                 .weight(1f)
-                .height(52.dp),
+                .height(dimensionResource(id = R.dimen.text_field_height)),
             value = "",
             onValueChange = {},
             placeholder = {
                 Text(
                     text = placeholder,
-                    style = TextStyle(fontSize = 16.sp),
+                    style = TextStyle(fontSize = dimensionResource(id = R.dimen.text_size_normal).value.sp),
                     color = Color.Gray
                 )
             },
@@ -121,7 +131,7 @@ fun InputRow(label: String, placeholder: String) {
                 unfocusedBorderColor = Color.Gray
             )
         )
-        Spacer(modifier = Modifier.width(16.dp))
+        Spacer(modifier = Modifier.width(dimensionResource(id = R.dimen.space_16)))
     }
 }
 
@@ -135,16 +145,20 @@ fun ProgressSection(label: String, progressContent: @Composable () -> Unit) {
 
 @Composable
 private fun CircularProgressWithSeekBar(progress: MutableState<Float>) {
-    Box(contentAlignment = Alignment.Center, modifier = Modifier.size(160.dp)) {
+    Box(contentAlignment = Alignment.Center,
+        modifier = Modifier.size(dimensionResource(id = R.dimen.circular_progress_with_seek_bar_size))) {
         CircularProgressIndicator(
             color = Color.Blue,
-            strokeWidth = 4.dp,
+            strokeWidth = dimensionResource(id = R.dimen.circular_progress_indicator_stroke_width),
             progress = progress.value / 100,
             modifier = Modifier
-                .size(160.dp)
-                .padding(8.dp)
+                .size(dimensionResource(id = R.dimen.circular_progress_with_seek_bar_size))
+                .padding(dimensionResource(id = R.dimen.space_8))
         )
-        Text(text = "${progress.value.toInt()}%", fontSize = 36.sp)
+        Text(
+            text = "${progress.value.toInt()}%",
+            style = TextStyle(fontSize = dimensionResource(id = R.dimen.text_size_large).value.sp),
+        )
     }
     Slider(
         colors = SliderDefaults.colors(
@@ -155,7 +169,7 @@ private fun CircularProgressWithSeekBar(progress: MutableState<Float>) {
         value = progress.value,
         onValueChange = { newValue -> progress.value = newValue },
         valueRange = 0f..100f,
-        modifier = Modifier.padding(16.dp)
+        modifier = Modifier.padding(dimensionResource(id = R.dimen.space_16))
     )
 }
 
@@ -177,6 +191,6 @@ fun SaveRecordButton() {
         onClick = {},
         colors = ButtonDefaults.buttonColors(Color.Blue)
     ) {
-        Text("記録する")
+        Text(stringResource(id = R.string.record))
     }
 }
