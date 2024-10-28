@@ -79,7 +79,7 @@ fun SettingScreen() {
 
 @Preview(showBackground = true)
 @Composable
-fun SettingScreenPreview() {
+private fun SettingScreenPreview() {
     PianoCoverBookTheme {
         SettingScreen()
     }

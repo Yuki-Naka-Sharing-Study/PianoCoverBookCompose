@@ -82,7 +82,7 @@ fun ConfirmScreen() {
 
 @Preview(showBackground = true)
 @Composable
-fun ConfirmScreenPreview() {
+private fun ConfirmScreenPreview() {
     PianoCoverBookTheme {
         ConfirmScreen()
     }

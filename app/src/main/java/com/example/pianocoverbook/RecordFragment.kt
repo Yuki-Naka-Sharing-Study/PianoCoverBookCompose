@@ -97,14 +97,14 @@ fun RecordScreen() {
 
 @Preview(showBackground = true)
 @Composable
-fun RecordScreenPreview() {
+private fun RecordScreenPreview() {
     PianoCoverBookTheme {
         RecordScreen()
     }
 }
 
 @Composable
-fun InputRow(label: String, placeholder: String) {
+private fun InputRow(label: String, placeholder: String) {
     Row(
         horizontalArrangement = Arrangement.Center,
         verticalAlignment = Alignment.CenterVertically
@@ -136,7 +136,7 @@ fun InputRow(label: String, placeholder: String) {
 }
 
 @Composable
-fun ProgressSection(label: String, progressContent: @Composable () -> Unit) {
+private fun ProgressSection(label: String, progressContent: @Composable () -> Unit) {
     Column(horizontalAlignment = Alignment.CenterHorizontally) {
         Text(text = label)
         progressContent()
@@ -174,19 +174,19 @@ private fun CircularProgressWithSeekBar(progress: MutableState<Float>) {
 }
 
 @Composable
-fun RightHandCircularProgressWithSeekBar() {
+private fun RightHandCircularProgressWithSeekBar() {
     val rightHandProgress = rememberSaveable { mutableFloatStateOf(0f) }
     CircularProgressWithSeekBar(progress = rightHandProgress)
 }
 
 @Composable
-fun LeftHandCircularProgressWithSeekBar() {
+private fun LeftHandCircularProgressWithSeekBar() {
     val leftHandProgress = rememberSaveable { mutableFloatStateOf(0f) }
     CircularProgressWithSeekBar(progress = leftHandProgress)
 }
 
 @Composable
-fun SaveRecordButton() {
+private fun SaveRecordButton() {
     Button(
         onClick = {},
         colors = ButtonDefaults.buttonColors(Color.Blue)
