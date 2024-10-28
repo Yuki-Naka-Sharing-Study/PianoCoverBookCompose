@@ -22,12 +22,12 @@ import androidx.compose.material3.Slider
 import androidx.compose.material3.SliderDefaults
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
-import androidx.compose.runtime.mutableStateOf
-import androidx.compose.runtime.remember
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.material.TextFieldDefaults
 import androidx.compose.runtime.MutableState
+import androidx.compose.runtime.mutableFloatStateOf
+import androidx.compose.runtime.saveable.rememberSaveable
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.platform.ComposeView
 import androidx.compose.ui.text.TextStyle
@@ -161,13 +161,13 @@ private fun CircularProgressWithSeekBar(progress: MutableState<Float>) {
 
 @Composable
 fun RightHandCircularProgressWithSeekBar() {
-    val rightHandProgress = remember { mutableStateOf(0f) }
+    val rightHandProgress = rememberSaveable { mutableFloatStateOf(0f) }
     CircularProgressWithSeekBar(progress = rightHandProgress)
 }
 
 @Composable
 fun LeftHandCircularProgressWithSeekBar() {
-    val leftHandProgress = remember { mutableStateOf(0f) }
+    val leftHandProgress = rememberSaveable { mutableFloatStateOf(0f) }
     CircularProgressWithSeekBar(progress = leftHandProgress)
 }
 
