@@ -28,6 +28,7 @@ import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.sp
+import androidx.navigation.NavController
 import com.example.pianocoverbook.ui.theme.PianoCoverBookTheme
 
 class SettingFragment : Fragment() {
@@ -120,6 +121,13 @@ private fun AboutThisAppLazyColumn(modifier: Modifier) {
     ) {
         items(itemList.size) { index ->
             val item = itemList[index]
+            val action = when (index) {
+                0 -> { { /* このアプリについて */ aboutThisApp() } }
+                1 -> { { /* お問い合わせ */ contact() } }
+                2 -> { { /* レビューする */ review() } }
+                3 -> { { /* このアプリを共有する */ shareApp() } }
+                else -> { { /* 何もしない */ } }
+            }
             BasicText(
                 text = item,
                 modifier = Modifier.padding(dimensionResource(id = R.dimen.space_16)),
@@ -141,4 +149,20 @@ private fun AboutThisAppLazyColumnPreview() {
     PianoCoverBookTheme {
         AboutThisAppLazyColumn(modifier = Modifier)
     }
+}
+
+private fun aboutThisApp() {
+
+}
+
+private fun contact() {
+
+}
+
+private fun review() {
+
+}
+
+private fun shareApp() {
+
 }
