@@ -26,8 +26,11 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.material.TextFieldDefaults
 import androidx.compose.runtime.MutableState
+import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableFloatStateOf
+import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.saveable.rememberSaveable
+import androidx.compose.runtime.setValue
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.platform.ComposeView
 import androidx.compose.ui.res.dimensionResource
@@ -61,19 +64,19 @@ fun RecordScreen() {
         Spacer(modifier = Modifier.height(dimensionResource(id = R.dimen.space_16)))
         InputRow(
             label = stringResource(id = R.string.music_name),
-            placeholder = stringResource(id = R.string.placeholder_music)
+            placeholder = stringResource(id = R.string.placeholder_music),
         )
 
         Spacer(modifier = Modifier.height(dimensionResource(id = R.dimen.space_8)))
         InputRow(
             label = stringResource(id = R.string.artist_name),
-            placeholder = stringResource(id = R.string.placeholder_artist)
+            placeholder = stringResource(id = R.string.placeholder_artist),
         )
 
         Spacer(modifier = Modifier.height(dimensionResource(id = R.dimen.space_8)))
         InputRow(
             label = stringResource(id = R.string.memo_name),
-            placeholder = stringResource(id = R.string.placeholder_memo)
+            placeholder = stringResource(id = R.string.placeholder_memo),
         )
 
         Spacer(modifier = Modifier.height(dimensionResource(id = R.dimen.space_8)))
@@ -105,6 +108,10 @@ private fun RecordScreenPreview() {
 
 @Composable
 private fun InputRow(label: String, placeholder: String) {
+    var textOfMusic by rememberSaveable { mutableStateOf("") }
+    var textOfArtist by rememberSaveable { mutableStateOf("") }
+    var textOfMemo by rememberSaveable { mutableStateOf("") }
+
     Row(
         horizontalArrangement = Arrangement.Center,
         verticalAlignment = Alignment.CenterVertically
