@@ -28,7 +28,6 @@ import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.sp
-import androidx.navigation.NavController
 import com.example.pianocoverbook.ui.theme.PianoCoverBookTheme
 
 class SettingFragment : Fragment() {
@@ -89,7 +88,7 @@ fun SettingScreenPreview() {
 @Composable
 private fun SettingTextView() {
     Text(
-        stringResource(id = R.string.seting_text_view),
+        stringResource(id = R.string.setting_text_view),
         fontWeight = FontWeight.Bold
     )
 }
