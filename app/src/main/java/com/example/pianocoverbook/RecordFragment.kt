@@ -191,6 +191,6 @@ fun SaveRecordButton() {
         onClick = {},
         colors = ButtonDefaults.buttonColors(Color.Blue)
     ) {
-        Text(stringResource(id = R.string.record))
+        Text(stringResource(id = R.string.record_button))
     }
 }

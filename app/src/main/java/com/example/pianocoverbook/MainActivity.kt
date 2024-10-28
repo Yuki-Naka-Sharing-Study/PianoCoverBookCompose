@@ -15,6 +15,7 @@ import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.res.stringResource
 import androidx.navigation.NavController
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.currentBackStackEntryAsState
@@ -38,8 +39,7 @@ fun MyApp() {
     ) { innerPadding ->
         NavHost(
             navController = navController,
-            startDestination = "confirm",
-
+            startDestination = stringResource(id = R.string.confirm),
             Modifier.padding(innerPadding)
         ) {
             composable("confirm") { ConfirmScreen() }
@@ -56,9 +56,9 @@ fun BottomNavigationBar(navController: NavController) {
 
     BottomNavigation {
         BottomNavigationItem(
-            icon = { Icon(Icons.Default.Check, contentDescription = "Confirm") },
-            label = { Text("Confirm") },
-            selected = currentDestination?.route == "confirm",
+            icon = { Icon(Icons.Default.Check, contentDescription = stringResource(id = R.string.confirm)) },
+            label = { Text(stringResource(id = R.string.confirm)) },
+            selected = currentDestination?.route == stringResource(id = R.string.confirm),
             onClick = {
                 navController.navigate("confirm") {
 //                    popUpTo("confirm") { saveState = true }
@@ -68,9 +68,9 @@ fun BottomNavigationBar(navController: NavController) {
             }
         )
         BottomNavigationItem(
-            icon = { Icon(Icons.Default.Edit, contentDescription = "Record") },
-            label = { Text("Record") },
-            selected = currentDestination?.route == "record",
+            icon = { Icon(Icons.Default.Edit, contentDescription = stringResource(id = R.string.record)) },
+            label = { Text(stringResource(id = R.string.record)) },
+            selected = currentDestination?.route == stringResource(id = R.string.record),
             onClick = {
                 navController.navigate("record") {
 //                    popUpTo("record") { saveState = true }
@@ -80,9 +80,9 @@ fun BottomNavigationBar(navController: NavController) {
             }
         )
         BottomNavigationItem(
-            icon = { Icon(Icons.Default.Settings, contentDescription = "Settings") },
-            label = { Text("Settings") },
-            selected = currentDestination?.route == "setting",
+            icon = { Icon(Icons.Default.Settings, contentDescription = stringResource(id = R.string.setting)) },
+            label = { Text(stringResource(id = R.string.setting)) },
+            selected = currentDestination?.route == stringResource(id = R.string.setting),
             onClick = {
                 navController.navigate("setting") {
 //                    popUpTo("setting") { saveState = true }
