@@ -24,10 +24,11 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.platform.ComposeView
+import androidx.compose.ui.res.dimensionResource
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.tooling.preview.Preview
-import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.example.pianocoverbook.ui.theme.PianoCoverBookTheme
 
@@ -49,18 +50,22 @@ class SettingFragment : Fragment() {
 fun SettingScreen() {
     Column(
         modifier = Modifier
-            .padding(16.dp),
+            .padding(dimensionResource(id = R.dimen.space_16)),
         verticalArrangement = Arrangement.Top,
         horizontalAlignment = Alignment.CenterHorizontally
     ) {
-        SetingTextView()
+        SettingTextView()
 
-        Spacer(modifier = Modifier.height(16.dp))
+        Spacer(
+            modifier = Modifier.height(
+            dimensionResource(id = R.dimen.space_16)
+            )
+        )
 
         Row(
             modifier = Modifier
                 .fillMaxWidth()
-                .padding(16.dp),
+                .padding(dimensionResource(id = R.dimen.space_16)),
         ) {
             Column(
                 modifier = Modifier
@@ -71,8 +76,8 @@ fun SettingScreen() {
                 AboutThisAppLazyColumn(
                     modifier = Modifier
                         .fillMaxWidth()
-                        .padding(horizontal = 16.dp)
-                        .clip(RoundedCornerShape(16.dp))
+                        .padding(horizontal = dimensionResource(id = R.dimen.space_16))
+                        .clip(RoundedCornerShape(dimensionResource(id = R.dimen.space_16)))
                         .background(color = androidx.compose.ui.graphics.Color.LightGray)
                 )
             }
@@ -89,45 +94,45 @@ fun SettingScreenPreview() {
 }
 
 @Composable
-private fun SetingTextView() {
+private fun SettingTextView() {
     Text(
-        "設定",
+        stringResource(id = R.string.seting_text_view),
         fontWeight = FontWeight.Bold
     )
 }
 
 @Preview(showBackground = true)
 @Composable
-private fun SetingTextViewPreview() {
+private fun SettingTextViewPreview() {
     PianoCoverBookTheme {
-        SetingTextView()
+        SettingTextView()
     }
 }
 
 @Composable
 private fun AboutThisAppLazyColumn(modifier: Modifier) {
     val itemList = listOf(
-        "このアプリについて",
-        "お問い合わせ",
-        "レビューする",
-        "このアプリを共有する",
-        "バージョン"
+        stringResource(id = R.string.about_this_app),
+        stringResource(id = R.string.contact),
+        stringResource(id = R.string.review),
+        stringResource(id = R.string.share_this_app),
+        stringResource(id = R.string.version),
     )
 
     LazyColumn(
         modifier = modifier
             .fillMaxWidth()
-            .padding(horizontal = 16.dp)
-            .clip(RoundedCornerShape(16.dp))
+            .padding(horizontal = dimensionResource(id = R.dimen.space_16))
+            .clip(RoundedCornerShape(dimensionResource(id = R.dimen.space_16)))
             .background(color = androidx.compose.ui.graphics.Color.LightGray)
     ) {
         items(itemList.size) { index ->
             val item = itemList[index]
             BasicText(
                 text = item,
-                modifier = Modifier.padding(16.dp),
+                modifier = Modifier.padding(dimensionResource(id = R.dimen.space_16)),
                 style = TextStyle(
-                    fontSize = 14.sp,
+                    fontSize = dimensionResource(id = R.dimen.space_16).value.sp,
                     color = androidx.compose.ui.graphics.Color.Gray
                 )
             )

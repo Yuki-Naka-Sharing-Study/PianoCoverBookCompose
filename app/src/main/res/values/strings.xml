@@ -26,5 +26,11 @@
     <string name="content_description_search_icon">Search Icon</string>
 
     <!-- SettingFragment -->
+    <string name="seting_text_view">設定</string>
+    <string name="about_this_app">このアプリについて</string>
+    <string name="contact">お問い合わせ</string>
+    <string name="review">レビューする</string>
+    <string name="share_this_app">このアプリを共有する</string>
+    <string name="version">バージョン</string>
 
 </resources>
