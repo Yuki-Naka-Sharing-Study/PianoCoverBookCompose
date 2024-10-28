@@ -47,36 +47,34 @@ class SettingFragment : Fragment() {
 
 @Composable
 fun SettingScreen() {
-    Row {
-        Column(
+    Column(
+        modifier = Modifier
+            .padding(16.dp),
+        verticalArrangement = Arrangement.Top,
+        horizontalAlignment = Alignment.CenterHorizontally
+    ) {
+        SetingTextView()
+
+        Spacer(modifier = Modifier.height(16.dp))
+
+        Row(
             modifier = Modifier
+                .fillMaxWidth()
                 .padding(16.dp),
-            verticalArrangement = Arrangement.Top,
-            horizontalAlignment = Alignment.CenterHorizontally
         ) {
-            SetingTextView()
-
-            Spacer(modifier = Modifier.height(16.dp))
-
-            Row(
+            Column(
                 modifier = Modifier
-                    .fillMaxWidth()
-                    .padding(16.dp),
+                    .wrapContentHeight(),
+                verticalArrangement = Arrangement.Top,
+                horizontalAlignment = Alignment.Start
             ) {
-                Column(
+                AboutThisAppLazyColumn(
                     modifier = Modifier
-                        .wrapContentHeight(),
-                    verticalArrangement = Arrangement.Top,
-                    horizontalAlignment = Alignment.Start
-                ) {
-                    AboutThisAppLazyColumn(
-                        modifier = Modifier
-                            .fillMaxWidth()
-                            .padding(horizontal = 16.dp)
-                            .clip(RoundedCornerShape(16.dp))
-                            .background(color = androidx.compose.ui.graphics.Color.LightGray)
-                    )
-                }
+                        .fillMaxWidth()
+                        .padding(horizontal = 16.dp)
+                        .clip(RoundedCornerShape(16.dp))
+                        .background(color = androidx.compose.ui.graphics.Color.LightGray)
+                )
             }
         }
     }
