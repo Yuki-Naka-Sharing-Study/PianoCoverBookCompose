@@ -26,10 +26,11 @@ import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.ComposeView
+import androidx.compose.ui.res.dimensionResource
 import androidx.compose.ui.res.painterResource
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.tooling.preview.Preview
-import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.fragment.app.Fragment
 import com.example.pianocoverbook.ui.theme.PianoCoverBookTheme
@@ -91,9 +92,9 @@ fun ConfirmScreenPreview() {
 private fun NoRecordImageView(modifier: Modifier = Modifier) {
     Image(
         painter = painterResource(id = R.drawable.music_note),
-        contentDescription = "Description of the image",
+        contentDescription = stringResource(id = R.string.description_of_the_image),
         modifier = modifier
-            .size(200.dp)
+            .size((dimensionResource(id = R.dimen.no_record_image_view)))
             .aspectRatio(1f)
     )
 }
@@ -111,9 +112,11 @@ private fun NoRecordImageViewPreview() {
 @Composable
 private fun NoRecordText(modifier: Modifier = Modifier) {
     androidx.compose.material.Text(
-        text = "記録無し",
+        text = stringResource(id = R.string.no_record),
         fontWeight = FontWeight.Bold,
-        fontSize = 28.sp,
+        fontSize = dimensionResource(
+            id = R.dimen.no_record_text_font_size
+        ).value.sp,
     )
 }
 
@@ -128,7 +131,7 @@ private fun NoRecordTextPreview() {
 @Composable
 private fun NoRecordDescriptionText(modifier: Modifier = Modifier) {
     androidx.compose.material.Text(
-        text = "まだ何も記録されていません。",
+        text = stringResource(id = R.string.no_record_description),
         fontWeight = FontWeight.Light,
         color = androidx.compose.ui.graphics.Color.LightGray
     )
@@ -153,17 +156,28 @@ private fun SearchBar(
         .fillMaxWidth()
         .background(
             androidx.compose.ui.graphics.Color.Gray.copy(alpha = 0.1f),
-            shape = RoundedCornerShape(12.dp)
+            shape = RoundedCornerShape(
+                dimensionResource(
+                    id = R.dimen.search_bar_background_rounded_corner_shape
+                )
+            )
         )
-        .padding(8.dp)
+        .padding(dimensionResource(id = R.dimen.space_8))
 
     Box(modifier = modifier) {
         androidx.compose.material.TextField(
             value = query,
             onValueChange = onQueryChange,
-            placeholder = { androidx.compose.material.Text("曲名・アーティスト名で検索") },
+            placeholder = { androidx.compose.material.Text(
+                stringResource(id = R.string.search_by_name)
+            ) },
             leadingIcon = {
-                Icon(Icons.Default.Search, contentDescription = "Search Icon")
+                Icon(
+                    Icons.Default.Search,
+                    contentDescription = stringResource(
+                        id = R.string.content_description_search_icon
+                    )
+                )
             },
             singleLine = true,
             modifier = Modifier.fillMaxWidth()
@@ -175,7 +189,7 @@ private fun SearchBar(
 private fun SearchScreen() {
     var searchQuery by remember { mutableStateOf("") }
 
-    Column(modifier = Modifier.padding(16.dp)) {
+    Column(modifier = Modifier.padding(dimensionResource(id = R.dimen.space_16))) {
         SearchBar(
             query = searchQuery,
             onQueryChange = { searchQuery = it }
