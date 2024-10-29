@@ -26,9 +26,7 @@ import androidx.navigation.compose.composable
 class MainActivity : ComponentActivity() {
     private val repository: MusicInfoRepository = MusicInfoRepository()
     private val musicInfoDao: MusicInfoDao
-        get() {
-            TODO()
-        }
+        get() { TODO() }
     private val viewModel: MusicInfoViewModel by viewModels {
         MusicInfoViewModelFactory(repository, musicInfoDao)
     }
