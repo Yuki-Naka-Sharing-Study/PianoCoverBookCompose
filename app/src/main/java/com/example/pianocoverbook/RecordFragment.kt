@@ -39,10 +39,13 @@ import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.sp
 import androidx.fragment.app.Fragment
+import androidx.fragment.app.viewModels
 import com.example.pianocoverbook.ui.theme.PianoCoverBookTheme
 
 // 以下、リファクタリング後のコード
 class RecordFragment : Fragment() {
+    private val viewModel: MusicInfoViewModel by viewModels()
+
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -123,7 +126,6 @@ private fun RecordScreenPreview() {
 @Composable
 private fun InputRow(label: String, placeholder: String, onValueChange: (String) -> Unit = {}) {
 
-
     Row(
         horizontalArrangement = Arrangement.Center,
         verticalAlignment = Alignment.CenterVertically
@@ -136,10 +138,6 @@ private fun InputRow(label: String, placeholder: String, onValueChange: (String)
                 .weight(1f)
                 .height(dimensionResource(id = R.dimen.text_field_height)),
             value = "",
-
-//            value = textOfMusic
-//            value = textOfArtist,
-//            value = textOfMemo,
             onValueChange = onValueChange,
             placeholder = {
                 Text(
