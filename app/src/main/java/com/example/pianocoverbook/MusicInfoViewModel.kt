@@ -23,9 +23,11 @@ class MusicInfoViewModel(application: Application) : AndroidViewModel(applicatio
         }
     }
 
-    fun saveValues(value: List<String>){
+    fun saveValues(textOfMusic: String, textOfArtist: String, textOfMemo: String) {
         viewModelScope.launch {
-
+            // ここでデータベースの処理などを行う
+            // 例: Roomを使用してデータの保存
+            // repository.saveMusicInfo(textOfMusic, textOfArtist, textOfMemo)
         }
     }
 
