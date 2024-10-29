@@ -1,5 +1,6 @@
 package com.example.pianocoverbook
 
+import android.app.Application
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -52,14 +53,14 @@ class RecordFragment : Fragment() {
     ): View {
         return ComposeView(requireContext()).apply {
             setContent {
-                RecordScreen()
+                RecordScreen(viewModel = viewModel)
             }
         }
     }
 }
 
 @Composable
-fun RecordScreen() {
+fun RecordScreen(viewModel: MusicInfoViewModel) {
     Column(
         modifier = Modifier.padding(dimensionResource(id = R.dimen.padding_default))
     ) {
@@ -103,11 +104,11 @@ fun RecordScreen() {
             ) {
                 SaveRecordButton(
                     onClick = {
-//                        viewModel.saveValues(
-//                            textOfMusic,
-//                            textOfArtist,
-//                            textOfMemo
-//                        )
+                        viewModel.saveValues(
+                            textOfMusic,
+                            textOfArtist,
+                            textOfMemo
+                        )
                     }
                 )
             }
@@ -119,7 +120,7 @@ fun RecordScreen() {
 @Composable
 private fun RecordScreenPreview() {
     PianoCoverBookTheme {
-        RecordScreen()
+        RecordScreen(viewModel = MusicInfoViewModel(application = Application()))
     }
 }
 

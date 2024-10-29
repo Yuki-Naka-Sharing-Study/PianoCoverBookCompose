@@ -23,6 +23,12 @@ class MusicInfoViewModel(application: Application) : AndroidViewModel(applicatio
         }
     }
 
+    fun saveValues(value: List<String>){
+        viewModelScope.launch {
+
+        }
+    }
+
     fun insertMusicInfo(musicInfo: MusicInfo) {
         viewModelScope.launch {
             musicInfoDao.insertMusicInfo(musicInfo)
