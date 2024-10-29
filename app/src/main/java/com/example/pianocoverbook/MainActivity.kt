@@ -1,8 +1,10 @@
 package com.example.pianocoverbook
 
+import android.app.Application
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
+import androidx.activity.viewModels
 import androidx.compose.foundation.layout.padding
 import androidx.compose.material.BottomNavigation
 import androidx.compose.material.BottomNavigationItem
@@ -16,6 +18,7 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.stringResource
+import androidx.fragment.app.viewModels
 import androidx.navigation.NavController
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.currentBackStackEntryAsState
@@ -43,7 +46,7 @@ private fun MyApp() {
             Modifier.padding(innerPadding)
         ) {
             composable("confirm") { ConfirmScreen() }
-            composable("record") { RecordScreen() }
+            composable("record") { RecordScreen(viewModel = MusicInfoViewModel(application = Application())) }
             composable("setting") { SettingScreen() }
         }
     }
