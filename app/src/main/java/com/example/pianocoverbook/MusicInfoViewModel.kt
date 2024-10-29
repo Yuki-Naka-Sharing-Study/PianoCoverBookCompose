@@ -23,9 +23,12 @@ class MusicInfoViewModel(application: Application) : AndroidViewModel(applicatio
         }
     }
 
-    fun saveValues(value: List<String>){
+    fun saveValues(vararg values: String){
+        val list = values.toList()
         viewModelScope.launch {
-
+            // ここでデータベースの処理などを行う
+            // 例: Roomを使用してデータの保存
+            // repository.saveMusicInfo(list[0], list[1], list[2])
         }
     }
 
