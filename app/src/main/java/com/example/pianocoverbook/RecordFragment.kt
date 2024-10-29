@@ -126,7 +126,6 @@ private fun RecordScreenPreview() {
 
 @Composable
 private fun InputRow(label: String, placeholder: String, onValueChange: (String) -> Unit = {}) {
-
     Row(
         horizontalArrangement = Arrangement.Center,
         verticalAlignment = Alignment.CenterVertically
