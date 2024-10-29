@@ -24,7 +24,14 @@ import androidx.navigation.compose.rememberNavController
 import androidx.navigation.compose.composable
 
 class MainActivity : ComponentActivity() {
-    private val viewModel: MusicInfoViewModel by viewModels()
+    private val repository: MusicInfoRepository = MusicInfoRepository()
+    private val musicInfoDao: MusicInfoDao
+        get() {
+            TODO()
+        }
+    private val viewModel: MusicInfoViewModel by viewModels {
+        MusicInfoViewModelFactory(repository, musicInfoDao)
+    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
