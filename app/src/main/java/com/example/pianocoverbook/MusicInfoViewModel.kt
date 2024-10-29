@@ -1,19 +1,15 @@
 package com.example.pianocoverbook
 
-import android.app.Application
-import androidx.lifecycle.AndroidViewModel
+import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import androidx.room.Room
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.launch
 
-class MusicInfoViewModel(application: Application) : AndroidViewModel(application) {
-    private val repository = MusicInfoRepository()
-    private val musicInfoDao: MusicInfoDao = Room.databaseBuilder(
-        application,
-        MusicInfoDatabase::class.java, "music_info_database"
-    ).build().musicInfoDao()
+class MusicInfoViewModel(
+    private val repository: MusicInfoRepository,
+    private val musicInfoDao: MusicInfoDao
+) : ViewModel() {
 
     private val _musicInfo = MutableStateFlow<List<MusicInfo>>(emptyList())
     val musicInfo: StateFlow<List<MusicInfo>> = _musicInfo
@@ -26,8 +22,6 @@ class MusicInfoViewModel(application: Application) : AndroidViewModel(applicatio
 
     fun saveValues(textOfMusic: String, textOfArtist: String, textOfMemo: String) {
         viewModelScope.launch {
-            // ここでデータベースの処理などを行う
-            // 例: Roomを使用してデータの保存
             repository.saveMusicInfo(textOfMusic, textOfArtist, textOfMemo)
         }
     }

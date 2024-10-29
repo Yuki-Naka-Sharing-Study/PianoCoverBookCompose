@@ -1,6 +1,5 @@
 package com.example.pianocoverbook
 
-import android.app.Application
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
@@ -18,7 +17,6 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.stringResource
-import androidx.fragment.app.viewModels
 import androidx.navigation.NavController
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.currentBackStackEntryAsState
@@ -26,16 +24,18 @@ import androidx.navigation.compose.rememberNavController
 import androidx.navigation.compose.composable
 
 class MainActivity : ComponentActivity() {
+    private val viewModel: MusicInfoViewModel by viewModels()
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContent {
-            MyApp()
+            MyApp(viewModel = viewModel)
         }
     }
 }
 
 @Composable
-private fun MyApp() {
+private fun MyApp(viewModel: MusicInfoViewModel) {
     val navController = rememberNavController()
     Scaffold(
         bottomBar = { BottomNavigationBar(navController) }
@@ -46,7 +46,7 @@ private fun MyApp() {
             Modifier.padding(innerPadding)
         ) {
             composable("confirm") { ConfirmScreen() }
-            composable("record") { RecordScreen(viewModel = MusicInfoViewModel(application = Application())) }
+            composable("record") { RecordScreen(viewModel = viewModel) }
             composable("setting") { SettingScreen() }
         }
     }

@@ -1,6 +1,5 @@
 package com.example.pianocoverbook
 
-import android.app.Application
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -120,7 +119,7 @@ fun RecordScreen(viewModel: MusicInfoViewModel) {
 @Composable
 private fun RecordScreenPreview() {
     PianoCoverBookTheme {
-        RecordScreen(viewModel = MusicInfoViewModel(application = Application()))
+        RecordScreen()
     }
 }
 
