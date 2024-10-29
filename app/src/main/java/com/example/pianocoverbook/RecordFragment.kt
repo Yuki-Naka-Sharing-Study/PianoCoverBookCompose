@@ -37,6 +37,8 @@ import androidx.compose.ui.res.dimensionResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.tooling.preview.Preview
+import androidx.compose.ui.tooling.preview.PreviewParameter
+import androidx.compose.ui.tooling.preview.PreviewParameterProvider
 import androidx.compose.ui.unit.sp
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
@@ -115,11 +117,14 @@ fun RecordScreen(viewModel: MusicInfoViewModel) {
     }
 }
 
-@Preview(showBackground = true)
+@Preview
 @Composable
-private fun RecordScreenPreview() {
+private fun RecordScreenPreview(
+    @PreviewParameter(PreviewParameterProvider::class)
+    viewModel: MusicInfoViewModel
+) {
     PianoCoverBookTheme {
-        RecordScreen()
+        RecordScreen(viewModel = viewModel)
     }
 }
 
