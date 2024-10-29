@@ -60,23 +60,29 @@ fun RecordScreen() {
     Column(
         modifier = Modifier.padding(dimensionResource(id = R.dimen.padding_default))
     ) {
+        var textOfMusic by rememberSaveable { mutableStateOf("") }
+        var textOfArtist by rememberSaveable { mutableStateOf("") }
+        var textOfMemo by rememberSaveable { mutableStateOf("") }
 
         Spacer(modifier = Modifier.height(dimensionResource(id = R.dimen.space_16)))
         InputRow(
             label = stringResource(id = R.string.music_name),
             placeholder = stringResource(id = R.string.placeholder_music),
+            onValueChange = { textOfMusic = it }
         )
 
         Spacer(modifier = Modifier.height(dimensionResource(id = R.dimen.space_8)))
         InputRow(
             label = stringResource(id = R.string.artist_name),
             placeholder = stringResource(id = R.string.placeholder_artist),
+            onValueChange = { textOfArtist = it }
         )
 
         Spacer(modifier = Modifier.height(dimensionResource(id = R.dimen.space_8)))
         InputRow(
             label = stringResource(id = R.string.memo_name),
             placeholder = stringResource(id = R.string.placeholder_memo),
+            onValueChange = { textOfMemo = it }
         )
 
         Spacer(modifier = Modifier.height(dimensionResource(id = R.dimen.space_8)))
@@ -92,7 +98,15 @@ fun RecordScreen() {
                 horizontalArrangement = Arrangement.Center,
                 verticalAlignment = Alignment.CenterVertically
             ) {
-                SaveRecordButton()
+                SaveRecordButton(
+                    onClick = {
+//                        viewModel.saveValues(
+//                            textOfMusic,
+//                            textOfArtist,
+//                            textOfMemo
+//                        )
+                    }
+                )
             }
         }
     }
@@ -107,10 +121,8 @@ private fun RecordScreenPreview() {
 }
 
 @Composable
-private fun InputRow(label: String, placeholder: String) {
-    var textOfMusic by rememberSaveable { mutableStateOf("") }
-    var textOfArtist by rememberSaveable { mutableStateOf("") }
-    var textOfMemo by rememberSaveable { mutableStateOf("") }
+private fun InputRow(label: String, placeholder: String, onValueChange: (String) -> Unit = {}) {
+
 
     Row(
         horizontalArrangement = Arrangement.Center,
@@ -124,7 +136,11 @@ private fun InputRow(label: String, placeholder: String) {
                 .weight(1f)
                 .height(dimensionResource(id = R.dimen.text_field_height)),
             value = "",
-            onValueChange = {},
+
+//            value = textOfMusic
+//            value = textOfArtist,
+//            value = textOfMemo,
+            onValueChange = onValueChange,
             placeholder = {
                 Text(
                     text = placeholder,
@@ -193,9 +209,11 @@ private fun LeftHandCircularProgressWithSeekBar() {
 }
 
 @Composable
-private fun SaveRecordButton() {
+private fun SaveRecordButton(
+    onClick: () -> Unit = {}
+) {
     Button(
-        onClick = {},
+        onClick = onClick,
         colors = ButtonDefaults.buttonColors(Color.Blue)
     ) {
         Text(stringResource(id = R.string.record_button))
