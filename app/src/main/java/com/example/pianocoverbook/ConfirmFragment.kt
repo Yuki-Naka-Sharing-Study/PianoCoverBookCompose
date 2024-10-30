@@ -219,7 +219,7 @@ private fun MusicInfoLazyColumn() {
                     .fillMaxWidth(),
                 verticalAlignment = Alignment.CenterVertically
             ) {
-                Spacer(modifier = Modifier.width(dimensionResource(id = R.dimen.space_16)))
+                Spacer(modifier = Modifier.width(dimensionResource(id = R.dimen.space_24)))
                 SongNameTextView(songName = "")
                 Spacer(modifier = Modifier.width(dimensionResource(id = R.dimen.space_16)))
                 SongNameUserEnteredTextView(songName = "")
@@ -232,7 +232,7 @@ private fun MusicInfoLazyColumn() {
                     .fillMaxWidth(),
                 verticalAlignment = Alignment.CenterVertically
             ) {
-                Spacer(modifier = Modifier.width(dimensionResource(id = R.dimen.space_16)))
+                Spacer(modifier = Modifier.width(dimensionResource(id = R.dimen.space_24)))
                 ArtistNameTextView(artistName = "")
                 Spacer(modifier = Modifier.width(dimensionResource(id = R.dimen.space_16)))
                 ArtistNameUserEnteredTextView(artistName = "")
@@ -245,7 +245,7 @@ private fun MusicInfoLazyColumn() {
                     .fillMaxWidth(),
                 verticalAlignment = Alignment.CenterVertically
             ) {
-                Spacer(modifier = Modifier.width(dimensionResource(id = R.dimen.space_16)))
+                Spacer(modifier = Modifier.width(dimensionResource(id = R.dimen.space_24)))
                 MemoTextView(memoName = "")
                 Spacer(modifier = Modifier.width(dimensionResource(id = R.dimen.space_16)))
                 MemoUserEnteredTextView(memoName = "")
@@ -258,7 +258,7 @@ private fun MusicInfoLazyColumn() {
                     .fillMaxWidth(),
                 verticalAlignment = Alignment.CenterVertically
             ) {
-                Spacer(modifier = Modifier.width(dimensionResource(id = R.dimen.space_16)))
+                Spacer(modifier = Modifier.width(dimensionResource(id = R.dimen.space_24)))
                 RightHandTextView(rightHand = "")
                 Spacer(modifier = Modifier.width(dimensionResource(id = R.dimen.space_16)))
                 RightHandUserEnteredTextView(rightHand = "")
@@ -271,7 +271,7 @@ private fun MusicInfoLazyColumn() {
                     .fillMaxWidth(),
                 verticalAlignment = Alignment.CenterVertically
             ) {
-                Spacer(modifier = Modifier.width(dimensionResource(id = R.dimen.space_16)))
+                Spacer(modifier = Modifier.width(dimensionResource(id = R.dimen.space_24)))
                 LeftHandTextView(leftHand = "")
                 Spacer(modifier = Modifier.width(dimensionResource(id = R.dimen.space_16)))
                 LeftHandUserEnteredTextView(leftHand = "")
