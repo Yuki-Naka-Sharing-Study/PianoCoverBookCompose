@@ -375,7 +375,7 @@ private fun MemoUserEnteredTextViewPreview() {
 @Composable
 private fun RightHandTextView(rightHand: String, modifier: Modifier = Modifier) {
     Text(
-        text = "右手の習熟度",
+        text = stringResource(id = R.string.right_hand),
         modifier = modifier
     )
 }
@@ -384,7 +384,7 @@ private fun RightHandTextView(rightHand: String, modifier: Modifier = Modifier) 
 @Composable
 private fun RightHandTextViewPreview() {
     PianoCoverBookTheme {
-        RightHandTextView("右手の習熟度")
+        RightHandTextView(stringResource(id = R.string.right_hand))
     }
 }
 
@@ -407,7 +407,7 @@ private fun RightHandUserEnteredTextViewPreview() {
 @Composable
 private fun LeftHandTextView(leftHand: String, modifier: Modifier = Modifier) {
     Text(
-        text = "左手の習熟度",
+        text = stringResource(id = R.string.left_hand),
         modifier = modifier
     )
 }
@@ -416,7 +416,7 @@ private fun LeftHandTextView(leftHand: String, modifier: Modifier = Modifier) {
 @Composable
 private fun LeftHandTextViewPreview() {
     PianoCoverBookTheme {
-        LeftHandTextView("左手の習熟度")
+        LeftHandTextView(stringResource(id = R.string.left_hand))
     }
 }
 
