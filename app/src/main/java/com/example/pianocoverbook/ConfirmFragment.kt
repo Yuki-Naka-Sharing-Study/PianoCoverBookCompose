@@ -14,6 +14,7 @@ import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.aspectRatio
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.width
@@ -209,67 +210,79 @@ private fun SearchScreen() {
 @Composable
 private fun MusicInfoLazyColumn() {
     LazyColumn(modifier = Modifier.fillMaxWidth()) {
-        items(1) { index ->
+        items(4) { index ->
+
+            Spacer(modifier = Modifier.height(dimensionResource(id = R.dimen.space_8)))
 
             Row(
                 modifier = Modifier
-                    .fillMaxWidth()
-                    .padding(24.dp),
+                    .fillMaxWidth(),
                 verticalAlignment = Alignment.CenterVertically
             ) {
+                Spacer(modifier = Modifier.width(dimensionResource(id = R.dimen.space_16)))
                 SongNameTextView(songName = "")
                 Spacer(modifier = Modifier.width(dimensionResource(id = R.dimen.space_16)))
                 SongNameUserEnteredTextView(songName = "")
             }
 
+            Spacer(modifier = Modifier.height(dimensionResource(id = R.dimen.space_8)))
+
             Row(
                 modifier = Modifier
-                    .fillMaxWidth()
-                    .padding(24.dp),
+                    .fillMaxWidth(),
                 verticalAlignment = Alignment.CenterVertically
             ) {
+                Spacer(modifier = Modifier.width(dimensionResource(id = R.dimen.space_16)))
                 ArtistNameTextView(artistName = "")
                 Spacer(modifier = Modifier.width(dimensionResource(id = R.dimen.space_16)))
                 ArtistNameUserEnteredTextView(artistName = "")
             }
 
+            Spacer(modifier = Modifier.height(dimensionResource(id = R.dimen.space_8)))
+
             Row(
                 modifier = Modifier
-                    .fillMaxWidth()
-                    .padding(24.dp),
+                    .fillMaxWidth(),
                 verticalAlignment = Alignment.CenterVertically
             ) {
+                Spacer(modifier = Modifier.width(dimensionResource(id = R.dimen.space_16)))
                 MemoTextView(memoName = "")
                 Spacer(modifier = Modifier.width(dimensionResource(id = R.dimen.space_16)))
                 MemoUserEnteredTextView(memoName = "")
             }
 
+            Spacer(modifier = Modifier.height(dimensionResource(id = R.dimen.space_8)))
+
             Row(
                 modifier = Modifier
-                    .fillMaxWidth()
-                    .padding(24.dp),
+                    .fillMaxWidth(),
                 verticalAlignment = Alignment.CenterVertically
             ) {
+                Spacer(modifier = Modifier.width(dimensionResource(id = R.dimen.space_16)))
                 RightHandTextView(rightHand = "")
                 Spacer(modifier = Modifier.width(dimensionResource(id = R.dimen.space_16)))
                 RightHandUserEnteredTextView(rightHand = "")
             }
 
+            Spacer(modifier = Modifier.height(dimensionResource(id = R.dimen.space_8)))
+
             Row(
                 modifier = Modifier
-                    .fillMaxWidth()
-                    .padding(24.dp),
+                    .fillMaxWidth(),
                 verticalAlignment = Alignment.CenterVertically
             ) {
+                Spacer(modifier = Modifier.width(dimensionResource(id = R.dimen.space_16)))
                 LeftHandTextView(leftHand = "")
                 Spacer(modifier = Modifier.width(dimensionResource(id = R.dimen.space_16)))
                 LeftHandUserEnteredTextView(leftHand = "")
             }
 
+            Spacer(modifier = Modifier.height(dimensionResource(id = R.dimen.space_8)))
+
             Divider(
                 modifier = Modifier
-                    .fillMaxWidth()
-                    .padding(24.dp),
+                    .padding(16.dp)
+                    .fillMaxWidth(),
                 color = androidx.compose.ui.graphics.Color.LightGray,
                 thickness = 1.dp,
             )
