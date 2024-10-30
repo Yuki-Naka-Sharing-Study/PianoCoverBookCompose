@@ -21,6 +21,7 @@ import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Search
+import androidx.compose.material3.Divider
 import androidx.compose.material3.Icon
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
@@ -264,6 +265,14 @@ private fun MusicInfoLazyColumn() {
                 Spacer(modifier = Modifier.width(dimensionResource(id = R.dimen.space_16)))
                 LeftHandUserEnteredTextView(leftHand = "")
             }
+
+            Divider(
+                modifier = Modifier
+                    .fillMaxWidth()
+                    .padding(24.dp),
+                color = androidx.compose.ui.graphics.Color.LightGray,
+                thickness = 1.dp,
+            )
         }
     }
 }
