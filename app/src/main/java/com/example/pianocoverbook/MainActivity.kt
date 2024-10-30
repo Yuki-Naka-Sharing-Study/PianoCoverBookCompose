@@ -22,11 +22,14 @@ import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.currentBackStackEntryAsState
 import androidx.navigation.compose.rememberNavController
 import androidx.navigation.compose.composable
+import androidx.room.Room
 
 class MainActivity : ComponentActivity() {
     private val repository: MusicInfoRepository = MusicInfoRepository()
-    private val musicInfoDao: MusicInfoDao
-        get() { TODO() }
+    private val musicInfoDao: MusicInfoDao = Room.databaseBuilder(
+        application,
+        MusicInfoDatabase::class.java, "music_info_database"
+    ).build().musicInfoDao()
     private val viewModel: MusicInfoViewModel by viewModels {
         MusicInfoViewModelFactory(repository, musicInfoDao)
     }
