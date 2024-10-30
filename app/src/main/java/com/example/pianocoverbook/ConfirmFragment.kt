@@ -10,11 +10,13 @@ import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
+import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.aspectRatio
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
+import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.icons.Icons
@@ -34,6 +36,7 @@ import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.tooling.preview.Preview
+import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.fragment.app.Fragment
 import com.example.pianocoverbook.ui.theme.PianoCoverBookTheme
@@ -79,6 +82,7 @@ fun ConfirmScreen() {
             verticalArrangement = Arrangement.Top
         ) {
             SearchScreen()
+            MusicInfoLazyColumn()
         }
     }
 }
@@ -203,8 +207,64 @@ private fun SearchScreen() {
 
 @Composable
 private fun MusicInfoLazyColumn() {
-    LazyColumn {
+    LazyColumn(modifier = Modifier.fillMaxWidth()) {
+        items(1) { index ->
 
+            Row(
+                modifier = Modifier
+                    .fillMaxWidth()
+                    .padding(16.dp),
+                verticalAlignment = Alignment.CenterVertically
+            ) {
+                SongNameTextView(songName = "")
+                Spacer(modifier = Modifier.width(dimensionResource(id = R.dimen.space_16)))
+                SongNameUserEnteredTextView(songName = "")
+            }
+
+            Row(
+                modifier = Modifier
+                    .fillMaxWidth()
+                    .padding(16.dp),
+                verticalAlignment = Alignment.CenterVertically
+            ) {
+                ArtistNameTextView(artistName = "")
+                Spacer(modifier = Modifier.width(dimensionResource(id = R.dimen.space_16)))
+                ArtistNameUserEnteredTextView(artistName = "")
+            }
+
+            Row(
+                modifier = Modifier
+                    .fillMaxWidth()
+                    .padding(16.dp),
+                verticalAlignment = Alignment.CenterVertically
+            ) {
+                MemoTextView(memoName = "")
+                Spacer(modifier = Modifier.width(dimensionResource(id = R.dimen.space_16)))
+                MemoUserEnteredTextView(memoName = "")
+            }
+
+            Row(
+                modifier = Modifier
+                    .fillMaxWidth()
+                    .padding(16.dp),
+                verticalAlignment = Alignment.CenterVertically
+            ) {
+                RightHandTextView(rightHand = "")
+                Spacer(modifier = Modifier.width(dimensionResource(id = R.dimen.space_16)))
+                RightHandUserEnteredTextView(rightHand = "")
+            }
+
+            Row(
+                modifier = Modifier
+                    .fillMaxWidth()
+                    .padding(16.dp),
+                verticalAlignment = Alignment.CenterVertically
+            ) {
+                LeftHandTextView(leftHand = "")
+                Spacer(modifier = Modifier.width(dimensionResource(id = R.dimen.space_16)))
+                LeftHandUserEnteredTextView(leftHand = "")
+            }
+        }
     }
 }
 
@@ -309,5 +369,69 @@ private fun MemoUserEnteredTextView(memoName: String, modifier: Modifier = Modif
 private fun MemoUserEnteredTextViewPreview() {
     PianoCoverBookTheme {
         MemoUserEnteredTextView(stringResource(id = R.string.placeholder_memo))
+    }
+}
+
+@Composable
+private fun RightHandTextView(rightHand: String, modifier: Modifier = Modifier) {
+    Text(
+        text = "右手の習熟度",
+        modifier = modifier
+    )
+}
+
+@Preview(showBackground = true)
+@Composable
+private fun RightHandTextViewPreview() {
+    PianoCoverBookTheme {
+        RightHandTextView("右手の習熟度")
+    }
+}
+
+@Composable
+private fun RightHandUserEnteredTextView(rightHand: String, modifier: Modifier = Modifier) {
+    Text(
+        text = "100",
+        modifier = modifier
+    )
+}
+
+@Preview(showBackground = true)
+@Composable
+private fun RightHandUserEnteredTextViewPreview() {
+    PianoCoverBookTheme {
+        RightHandUserEnteredTextView("100")
+    }
+}
+
+@Composable
+private fun LeftHandTextView(leftHand: String, modifier: Modifier = Modifier) {
+    Text(
+        text = "左手の習熟度",
+        modifier = modifier
+    )
+}
+
+@Preview(showBackground = true)
+@Composable
+private fun LeftHandTextViewPreview() {
+    PianoCoverBookTheme {
+        LeftHandTextView("左手の習熟度")
+    }
+}
+
+@Composable
+private fun LeftHandUserEnteredTextView(leftHand: String, modifier: Modifier = Modifier) {
+    Text(
+        text = "90",
+        modifier = modifier
+    )
+}
+
+@Preview(showBackground = true)
+@Composable
+private fun LeftHandUserEnteredTextViewPreview() {
+    PianoCoverBookTheme {
+        LeftHandUserEnteredTextView("90")
     }
 }
