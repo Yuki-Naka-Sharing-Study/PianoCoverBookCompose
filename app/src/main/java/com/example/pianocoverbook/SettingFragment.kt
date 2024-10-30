@@ -163,5 +163,11 @@ private fun reviewScreen() {
 }
 
 private fun shareAppScreen() {
-
+//private fun shareAppScreen(context: Context) {
+//    val shareIntent = Intent().apply {
+//        action = Intent.ACTION_SEND
+//        putExtra(Intent.EXTRA_TEXT, "このアプリをチェックしてください！ [アプリのURL]")
+//        type = "text/plain"
+//    }
+//    context.startActivity(Intent.createChooser(shareIntent, "共有する"))
 }
