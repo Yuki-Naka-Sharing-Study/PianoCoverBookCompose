@@ -56,10 +56,10 @@ android {
 
 dependencies {
     implementation(libs.androidx.lifecycle.livedata.ktx)
-    implementation(libs.androidx.room.ktx)
     implementation(libs.androidx.room.runtime)
-    annotationProcessor(libs.androidx.room.compiler)
     ksp(libs.androidx.room.compiler)
+    implementation(libs.androidx.room.ktx)
+    annotationProcessor(libs.androidx.room.compiler)
     implementation(libs.androidx.lifecycle.runtime.compose)
     implementation(libs.androidx.material)
     implementation(libs.androidx.material3)
