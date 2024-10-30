@@ -26,16 +26,17 @@ import androidx.room.Room
 
 class MainActivity : ComponentActivity() {
     private val repository: MusicInfoRepository = MusicInfoRepository()
-    private val musicInfoDao: MusicInfoDao = Room.databaseBuilder(
-        application,
-        MusicInfoDatabase::class.java, "music_info_database"
-    ).build().musicInfoDao()
+    private lateinit var musicInfoDao: MusicInfoDao
     private val viewModel: MusicInfoViewModel by viewModels {
         MusicInfoViewModelFactory(repository, musicInfoDao)
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        musicInfoDao = Room.databaseBuilder(
+            application,
+            MusicInfoDatabase::class.java, "music_info_database"
+        ).build().musicInfoDao()
         setContent {
             MyApp(viewModel = viewModel)
         }
