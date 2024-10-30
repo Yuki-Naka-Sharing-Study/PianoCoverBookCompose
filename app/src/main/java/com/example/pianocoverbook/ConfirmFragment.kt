@@ -9,15 +9,18 @@ import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.aspectRatio
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
+import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Search
 import androidx.compose.material3.Icon
+import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
@@ -195,5 +198,116 @@ private fun SearchScreen() {
             onQueryChange = { searchQuery = it }
         )
         // 検索結果を表示するためのUIをここに追加。
+    }
+}
+
+@Composable
+private fun MusicInfoLazyColumn() {
+    LazyColumn {
+
+    }
+}
+
+@Preview(showBackground = true)
+@Composable
+private fun MusicInfoLazyColumnPreview() {
+    PianoCoverBookTheme {
+        MusicInfoLazyColumn()
+    }
+}
+
+@Composable
+private fun SongNameTextView(songName: String, modifier: Modifier = Modifier) {
+    Text(
+        text = stringResource(id = R.string.music_name),
+        modifier = modifier
+    )
+}
+
+@Preview(showBackground = true)
+@Composable
+private fun SongNameTextViewPreview() {
+    PianoCoverBookTheme {
+        SongNameTextView(stringResource(id = R.string.music_name))
+    }
+}
+
+@Composable
+private fun SongNameUserEnteredTextView(songName: String, modifier: Modifier = Modifier) {
+    Text(
+        text = stringResource(id = R.string.placeholder_music),
+        modifier = modifier
+    )
+}
+
+@Preview(showBackground = true)
+@Composable
+private fun SongNameUserEnteredTextViewPreview() {
+    PianoCoverBookTheme {
+        SongNameUserEnteredTextView(stringResource(id = R.string.placeholder_music))
+    }
+}
+
+@Composable
+private fun ArtistNameTextView(artistName: String, modifier: Modifier = Modifier) {
+    Text(
+        text = stringResource(id = R.string.artist_name),
+        modifier = modifier
+    )
+}
+
+@Preview(showBackground = true)
+@Composable
+private fun ArtistNameTextViewPreview() {
+    PianoCoverBookTheme {
+        ArtistNameTextView(stringResource(id = R.string.artist_name))
+    }
+}
+
+@Composable
+private fun ArtistNameUserEnteredTextView(artistName: String, modifier: Modifier = Modifier) {
+    Text(
+        text = stringResource(id = R.string.placeholder_artist),
+        modifier = modifier
+    )
+}
+
+@Preview(showBackground = true)
+@Composable
+private fun ArtistNameUserEnteredTextViewPreview() {
+    PianoCoverBookTheme {
+        ArtistNameUserEnteredTextView(stringResource(id = R.string.placeholder_artist))
+    }
+}
+
+@Composable
+private fun MemoTextView(memoName: String, modifier: Modifier = Modifier) {
+    Text(
+        text = stringResource(id = R.string.memo_name),
+        modifier = modifier
+    )
+}
+
+@Preview(showBackground = true)
+@Composable
+private fun MemoTextViewPreview() {
+    PianoCoverBookTheme {
+        MemoTextView(stringResource(id = R.string.memo_name))
+    }
+}
+
+@Composable
+private fun MemoUserEnteredTextView(memoName: String, modifier: Modifier = Modifier) {
+    Text(
+        text = stringResource(id = R.string.placeholder_memo),
+        modifier = modifier
+    )
+}
+
+@Preview(showBackground = true)
+@Composable
+private fun MemoUserEnteredTextViewPreview() {
+    PianoCoverBookTheme {
+        MemoUserEnteredTextView(stringResource(id = R.string.placeholder_memo))
     }
 }
