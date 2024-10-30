@@ -121,10 +121,10 @@ private fun AboutThisAppLazyColumn(modifier: Modifier) {
         items(itemList.size) { index ->
             val item = itemList[index]
             val action = when (index) {
-                0 -> { { /* このアプリについて */ aboutThisApp() } }
-                1 -> { { /* お問い合わせ */ contact() } }
-                2 -> { { /* レビューする */ review() } }
-                3 -> { { /* このアプリを共有する */ shareApp() } }
+                0 -> { { /* このアプリについて */ AboutThisAppScreen() } }
+                1 -> { { /* お問い合わせ */ ContactScreen() } }
+                2 -> { { /* レビューする */ reviewScreen() } }
+                3 -> { { /* このアプリを共有する */ shareAppScreen() } }
                 else -> { { /* 何もしない */ } }
             }
             BasicText(
@@ -150,18 +150,18 @@ private fun AboutThisAppLazyColumnPreview() {
     }
 }
 
-private fun aboutThisApp() {
+fun AboutThisAppScreen() {
 
 }
 
-private fun contact() {
+fun ContactScreen() {
 
 }
 
-private fun review() {
+private fun reviewScreen() {
 
 }
 
-private fun shareApp() {
+private fun shareAppScreen() {
 
 }

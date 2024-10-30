@@ -50,9 +50,14 @@ private fun MyApp(viewModel: MusicInfoViewModel) {
             startDestination = stringResource(id = R.string.confirm),
             Modifier.padding(innerPadding)
         ) {
+            // 以下、BottomNavigation
             composable("confirm") { ConfirmScreen() }
             composable("record") { RecordScreen(viewModel = viewModel) }
             composable("setting") { SettingScreen() }
+
+            // 以下、設定画面からの画面遷移
+            composable("about") { AboutThisAppScreen() }
+            composable("contact") { ContactScreen() }
         }
     }
 }
