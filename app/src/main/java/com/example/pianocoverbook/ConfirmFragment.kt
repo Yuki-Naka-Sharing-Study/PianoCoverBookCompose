@@ -213,7 +213,7 @@ private fun MusicInfoLazyColumn() {
             Row(
                 modifier = Modifier
                     .fillMaxWidth()
-                    .padding(16.dp),
+                    .padding(24.dp),
                 verticalAlignment = Alignment.CenterVertically
             ) {
                 SongNameTextView(songName = "")
@@ -224,7 +224,7 @@ private fun MusicInfoLazyColumn() {
             Row(
                 modifier = Modifier
                     .fillMaxWidth()
-                    .padding(16.dp),
+                    .padding(24.dp),
                 verticalAlignment = Alignment.CenterVertically
             ) {
                 ArtistNameTextView(artistName = "")
@@ -235,7 +235,7 @@ private fun MusicInfoLazyColumn() {
             Row(
                 modifier = Modifier
                     .fillMaxWidth()
-                    .padding(16.dp),
+                    .padding(24.dp),
                 verticalAlignment = Alignment.CenterVertically
             ) {
                 MemoTextView(memoName = "")
@@ -246,7 +246,7 @@ private fun MusicInfoLazyColumn() {
             Row(
                 modifier = Modifier
                     .fillMaxWidth()
-                    .padding(16.dp),
+                    .padding(24.dp),
                 verticalAlignment = Alignment.CenterVertically
             ) {
                 RightHandTextView(rightHand = "")
@@ -257,7 +257,7 @@ private fun MusicInfoLazyColumn() {
             Row(
                 modifier = Modifier
                     .fillMaxWidth()
-                    .padding(16.dp),
+                    .padding(24.dp),
                 verticalAlignment = Alignment.CenterVertically
             ) {
                 LeftHandTextView(leftHand = "")
